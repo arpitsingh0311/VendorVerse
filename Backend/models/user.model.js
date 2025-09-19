@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
     {
@@ -35,7 +36,7 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-userSchema.pre('save', async (next) =>{
+userSchema.pre('save', async function(next){
     if(!this.isModified('password')){
         return next();
     }

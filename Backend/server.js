@@ -7,10 +7,11 @@ import cors from 'cors';
 import connectDB from './db/connectDB.js';
 import userRoutes from './routes/user.routes.js';
 
-dotenv.config(); // Load environment variables from .env file
+dotenv.config(); 
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
+
 
 // --- Middlewares ---
 app.use(express.json()); 
@@ -19,6 +20,7 @@ app.use(cors({
     origin: 'http://localhost:5173', 
     credentials: true 
 }));
+
 
 // --- Routes ---
 app.use('/api/user', userRoutes);
