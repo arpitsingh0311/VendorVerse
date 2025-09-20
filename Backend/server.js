@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import connectDB from './db/connectDB.js';
 import userRoutes from './routes/user.routes.js';
+import eventRoutes from './routes/event.routes.js';
 
 dotenv.config(); 
 
@@ -24,6 +25,7 @@ app.use(cors({
 
 // --- Routes ---
 app.use('/api/user', userRoutes);
+app.use('/api/events', eventRoutes);
 
 
 // --- Server and DB Connection ---

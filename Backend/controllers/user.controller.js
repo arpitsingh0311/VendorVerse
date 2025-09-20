@@ -36,7 +36,7 @@ export const register = async (req, res, next) => {
 export const login = async (req, res, next) => {
   try {
     const { email, password, role } = req.body;
-    if (!name || !email || !password || !role) {
+    if (!email || !password || !role) {
       return res.status(400).json({
         error: "All fields are required",
       });
@@ -53,10 +53,10 @@ export const login = async (req, res, next) => {
     }
     generateTokenAndSetCookie(user._id, res);
     res.status(200).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      role: user.role,
+      _id: user?._id,
+      name: user?.name,
+      email: user?.email,
+      role: user?.role,
     });
   } catch (error) {
     console.log(error);
